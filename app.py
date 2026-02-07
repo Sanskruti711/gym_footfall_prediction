@@ -25,9 +25,10 @@ except Exception as e:
     MODULES_LOADED = False
     print("IMPORT ERROR:", e)
 
-from data.generate_data import create_database, generate_realistic_data
 
 # Auto-create database if missing
+from data.generate_data import create_database, generate_realistic_data
+
 if not os.path.exists("data/gym.db"):
     create_database()
     generate_realistic_data()
