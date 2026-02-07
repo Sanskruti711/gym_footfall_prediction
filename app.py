@@ -16,14 +16,17 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 
 # Import from our modules
-# Import from our modules
+
+# Add project root to path
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 try:
     from data.database import GymDatabase
     from models.predict import GymPredictor
     MODULES_LOADED = True
-except ImportError as e:
+except Exception as e:
     MODULES_LOADED = False
-    print(e)
+    print("IMPORT ERROR:", e)
 
 # Page configuration
 st.set_page_config(
