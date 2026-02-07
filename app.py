@@ -28,8 +28,12 @@ except Exception as e:
 
 # Auto-create database if missing
 from data.generate_data import create_database, generate_realistic_data
+import os
 
-if not os.path.exists("data/gym.db"):
+DB_PATH = "data/gym.db"
+
+if not os.path.exists(DB_PATH):
+    print("Creating database...")
     create_database()
     generate_realistic_data()
 
