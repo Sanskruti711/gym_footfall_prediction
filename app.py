@@ -25,11 +25,12 @@ except Exception as e:
     MODULES_LOADED = False
     print("IMPORT ERROR:", e)
 
-from data.generate_data import generate_sample_data
+from data.generate_data import create_database, generate_realistic_data
 
 # Auto-create database if missing
 if not os.path.exists("data/gym.db"):
-    generate_sample_data()
+    create_database()
+    generate_realistic_data()
 
 # Page configuration
 st.set_page_config(
