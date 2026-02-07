@@ -17,7 +17,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 
 # Import from our modules
 try:
-    data.database
+    from data.database import GymDatabase
     from models.predict import GymPredictor
     MODULES_LOADED = True
 except ImportError as e:
