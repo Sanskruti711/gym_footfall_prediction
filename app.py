@@ -33,9 +33,16 @@ import os
 DB_PATH = "data/gym.db"
 
 if not os.path.exists(DB_PATH):
-    print("Creating database...")
     create_database()
     generate_realistic_data()
+
+import sqlite3
+
+conn = sqlite3.connect("data/gym.db")
+cur = conn.cursor()
+cur.execute("SELECT COUNT(*) FROM gym_occupancy")
+print("ROWS:", cur.fetchone())
+conn.close()
 
 # Page configuration
 st.set_page_config(
