@@ -36,14 +36,6 @@ if not os.path.exists(DB_PATH):
     create_database()
     generate_realistic_data()
 
-import sqlite3
-
-conn = sqlite3.connect("data/gym.db")
-cur = conn.cursor()
-cur.execute("SELECT COUNT(*) FROM gym_occupancy")
-print("ROWS:", cur.fetchone())
-conn.close()
-
 # Page configuration
 st.set_page_config(
     page_title="Gym Occupancy Predictor",
