@@ -25,6 +25,12 @@ except Exception as e:
     MODULES_LOADED = False
     print("IMPORT ERROR:", e)
 
+from data.generate_data import generate_sample_data
+
+# Auto-create database if missing
+if not os.path.exists("data/gym.db"):
+    generate_sample_data()
+
 # Page configuration
 st.set_page_config(
     page_title="Gym Occupancy Predictor",
